@@ -211,7 +211,8 @@ function sendRequest(client, device, message, projectId, accessToken, doneCallba
             let response = JSON.parse(data);
 
             // Extract status code from JSON response object
-            let statusCode = response.statusCode ?? response.status;
+            // let statusCode = response.statusCode ?? response.status;
+            let statusCode = (response.statusCode !== null && response.statusCode !== undefined) ? response.statusCode : response.status;
             
             // Status code found?
             if (statusCode) {
